@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:pathok_app/BottomBar.dart';
+import 'package:pathok_app/HomePage.dart';
+import 'package:pathok_app/StorePage.dart';
+import 'package:pathok_app/LibraryPage.dart';
 
 void main() => runApp(MyApp());
 
@@ -6,53 +10,47 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Welcome to Flutter',
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Welcome to Flutter'),
-        ),
-        body: SingleChildScrollView(
-            child: Column(children: [
-          Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-            Text(
-              "sd",
-              textAlign: TextAlign.left,
-              overflow: TextOverflow.ellipsis,
-              style: TextStyle(fontWeight: FontWeight.bold),
-            ),
-            FlatButton(onPressed: null, child: Text("See all "))
-          ]),
-          SizedBox(
-              height: 175.0,
-              child: ListView(
-                // This next line does the trick.
-                scrollDirection: Axis.horizontal,
-                children: <Widget>[
-                  Card(
-                      elevation: 0,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(15.0),
-                        side: BorderSide(
-                          color: Colors.grey[200],
-                          width: 2.0,
-                        ),
-                      ),
-                      clipBehavior: Clip.antiAlias,
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 15.0, vertical: 5.0),
-                        child: Row(
-                          children: [],
-                        ),
-                      )),
-                  Container(
-                    width: 160.0,
-                    color: Colors.blue,
+        title: 'Welcome to Flutter',
+        home: Scaffold(
+          appBar: AppBar(
+            title: Text('Home'),
+            backgroundColor: Colors.purple[900],
+          ),
+          body: DefaultTabController(
+            length: 4,
+            child: new Scaffold(
+              body: TabBarView(
+                children: [
+                  HomePage(),
+                  StorePage(),
+                  LibraryPage(),
+                  new Container(
+                    color: Colors.red,
                   ),
                 ],
-              ))
-        ])),
-      ),
-    );
+              ),
+              bottomNavigationBar: new Container(
+                  height: 70,
+                  child: new TabBar(
+                    tabs: [
+                      Tab(
+                        icon: new Icon(Icons.home),
+                      ),
+                      Tab(
+                        icon: new Icon(Icons.store),
+                      ),
+                      Tab(
+                        icon: new Icon(Icons.book),
+                      ),
+                      Tab(
+                        icon: new Icon(Icons.supervised_user_circle),
+                      )
+                    ],
+                    labelColor: Colors.blue,
+                    unselectedLabelColor: Colors.grey[500],
+                  )),
+            ),
+          ),
+        ));
   }
 }
