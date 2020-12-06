@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:pathok_app/BottomBar.dart';
 import 'package:pathok_app/HomePage.dart';
 import 'package:pathok_app/StorePage.dart';
 import 'package:pathok_app/LibraryPage.dart';
+import 'package:pathok_app/UserProfile.dart';
 
 void main() => runApp(MyApp());
 
@@ -24,9 +24,7 @@ class MyApp extends StatelessWidget {
                   HomePage(),
                   StorePage(),
                   LibraryPage(),
-                  new Container(
-                    color: Colors.red,
-                  ),
+                  UserProfilePage(),
                 ],
               ),
               bottomNavigationBar: new Container(

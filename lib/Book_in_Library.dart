@@ -14,8 +14,6 @@ class BookInLibrary extends StatelessWidget {
     return Container(
         color: dominatingColor,
         padding: EdgeInsets.all(10),
-        width: 160,
-        height: 200,
         child:
             Column(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
           Padding(
@@ -25,15 +23,20 @@ class BookInLibrary extends StatelessWidget {
                   children: [
                     Text(
                       bookName,
-                      style: TextStyle(color: Colors.white, fontSize: 15),
+                      style: TextStyle(
+                          color:
+                              authorName == null ? Colors.black : Colors.white,
+                          fontSize: 15),
                     ),
-                    Text(
-                      "By " + authorName,
-                      style: TextStyle(color: Colors.white.withOpacity(.6)),
-                    )
+                    authorName != null
+                        ? Text(
+                            "By " + authorName,
+                            style:
+                                TextStyle(color: Colors.white.withOpacity(.6)),
+                          )
+                        : Container()
                   ])),
           Container(
-              height: 130,
               margin: EdgeInsets.all(0),
               padding: EdgeInsets.all(0),
               color: Colors.black,
