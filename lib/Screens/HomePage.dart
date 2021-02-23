@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pathok_app/Continue_reading_card.dart';
+
+import '../Shared/Continue_reading_card.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -19,24 +20,25 @@ class HomePage extends StatelessWidget {
             FlatButton(onPressed: null, child: Text("View All"))
           ])),
       SizedBox(
-          height: 175.0,
-          child: ListView(
-            // This next line does the trick.
+        height: 175.0,
+        child: ListView(
+          // This next line does the trick.
 
-            scrollDirection: Axis.horizontal,
-            children: <Widget>[
-              ContinueReadingCard(
-                bookName: "Dark World",
-                authorName: "Bella Mackie",
-                imageUrl: "images/pic1.png",
-              ),
-              ContinueReadingCard(
-                bookName: "The Possible World",
-                authorName: "Bella Mackie",
-                imageUrl: "images/pic2.png",
-              ),
-            ],
-          )),
+          scrollDirection: Axis.horizontal,
+          children: <Widget>[
+            ContinueReadingCard(
+              bookName: "Dark World",
+              authorName: "Bella Mackie",
+              imageUrl: "images/pic1.png",
+            ),
+            ContinueReadingCard(
+              bookName: "The Possible World",
+              authorName: "Bella Mackie",
+              imageUrl: "images/pic2.png",
+            ),
+          ],
+        ),
+      ),
 
       //sdds
       Padding(

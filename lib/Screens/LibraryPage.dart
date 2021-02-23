@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:pathok_app/Continue_reading_card.dart';
-import 'package:pathok_app/Book_in_Library.dart';
+
+import '../Shared//Book_in_Library.dart';
+import '../Shared/Continue_reading_card.dart';
 
 class LibraryPage extends StatelessWidget {
   @override

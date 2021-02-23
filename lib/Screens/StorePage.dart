@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pathok_app/Book_in_Store.dart';
+
+import '../Shared/Book_in_Store.dart';
 
 class StorePage extends StatelessWidget {
   @override

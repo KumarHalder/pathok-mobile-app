@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pathok_app/Shared/Const.dart';
 
 class ContinueReadingCard extends StatelessWidget {
   ContinueReadingCard({this.bookName, this.authorName, this.imageUrl});
@@ -30,31 +31,58 @@ class ContinueReadingCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
-                      padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
+                      padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(bookName),
+                          Text(
+                            bookName,
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
                           Text(authorName),
+                          SizedBox(
+                            height: 10,
+                          ),
                           Row(
-                            children: [Text("122/200"), Text("65%")],
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Container(
+                                child: Text(
+                                  "122/200",
+                                  style: TextStyle(fontSize: 10),
+                                ),
+                              ),
+                              SizedBox(
+                                width: 20,
+                              ),
+                              Container(
+                                child: Text(
+                                  "65%",
+                                  style: TextStyle(fontSize: 10),
+                                ),
+                              ),
+                            ],
                           ),
                           Container(
                               width: 100,
                               child: LinearProgressIndicator(
                                 value: .6,
                                 backgroundColor: Colors.grey[300],
-                                valueColor: new AlwaysStoppedAnimation<Color>(
-                                    Colors.green[500]),
+                                valueColor: AlwaysStoppedAnimation<Color>(
+                                    AppColors.deccolor2),
                               )),
                         ],
                       )),
                   FlatButton(
-                      onPressed: null,
-                      child: Text(
-                        "Continue ->",
-                        style: TextStyle(color: Colors.purple[900]),
-                      ))
+                    onPressed: null,
+                    child: Text(
+                      "Continue ->",
+                      style: TextStyle(
+                        color: AppColors.deccolor2,
+                        fontWeight: FontWeight.normal,
+                      ),
+                    ),
+                  )
                 ],
               ))
             ],

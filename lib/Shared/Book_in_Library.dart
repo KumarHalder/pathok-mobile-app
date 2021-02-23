@@ -12,10 +12,11 @@ class BookInLibrary extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        color: dominatingColor,
-        padding: EdgeInsets.all(10),
-        child:
-            Column(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
+      color: dominatingColor,
+      padding: EdgeInsets.all(10),
+      child: Column(
+        // mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
           Padding(
               padding: EdgeInsets.all(5),
               child: Column(
@@ -37,13 +38,16 @@ class BookInLibrary extends StatelessWidget {
                         : Container()
                   ])),
           Container(
-              margin: EdgeInsets.all(0),
-              padding: EdgeInsets.all(0),
-              color: Colors.black,
-              child: FittedBox(
-                child: Image.asset(imageUrl),
-                fit: BoxFit.contain,
-              ))
-        ]));
+            // margin: EdgeInsets.all(0),
+            // padding: EdgeInsets.all(0),
+            color: Colors.black,
+            child: FittedBox(
+              child: Image.asset(imageUrl),
+              fit: BoxFit.fill,
+            ),
+          )
+        ],
+      ),
+    );
   }
 }
