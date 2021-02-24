@@ -7,8 +7,12 @@ import 'Screens/LibraryPage.dart';
 import 'Screens/StorePage.dart';
 import 'Screens/UserProfilePage.dart';
 import 'Shared/Custom_app_bar.dart';
+import 'package:pathok_app/locator.dart';
 
-void main() => runApp(AppHome());
+void main() {
+  setUpLocator();
+  runApp(AppHome());
+}
 
 class AppHome extends StatelessWidget {
   @override
@@ -22,7 +26,7 @@ class AppHome extends StatelessWidget {
         ),
       ),
       home: Scaffold(
-        appBar: CustomAppBar(),
+        //appBar: CustomAppBar(),
         body: DefaultTabController(
           length: 4,
           child: Scaffold(

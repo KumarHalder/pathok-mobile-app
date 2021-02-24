@@ -12,42 +12,49 @@ class BookInLibrary extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: dominatingColor,
-      padding: EdgeInsets.all(10),
-      child: Column(
-        // mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          Padding(
-              padding: EdgeInsets.all(5),
-              child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      bookName,
-                      style: TextStyle(
-                          color:
-                              authorName == null ? Colors.black : Colors.white,
-                          fontSize: 15),
-                    ),
-                    authorName != null
-                        ? Text(
-                            "By " + authorName,
-                            style:
-                                TextStyle(color: Colors.white.withOpacity(.6)),
-                          )
-                        : Container()
-                  ])),
-          Container(
-            // margin: EdgeInsets.all(0),
-            // padding: EdgeInsets.all(0),
-            color: Colors.black,
-            child: FittedBox(
-              child: Image.asset(imageUrl),
-              fit: BoxFit.fill,
-            ),
-          )
-        ],
-      ),
-    );
+        color: dominatingColor,
+        padding: EdgeInsets.all(10),
+        child: Column(
+            // mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Padding(
+                  padding: EdgeInsets.all(5),
+                  child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          bookName,
+                          style: TextStyle(
+                              color: authorName == null
+                                  ? Colors.black
+                                  : Colors.white,
+                              fontSize: 15),
+                        ),
+                        authorName != null
+                            ? Text(
+                                "By " + authorName,
+                                style: TextStyle(
+                                    color: Colors.white.withOpacity(.6)),
+                              )
+                            : Container()
+                      ])),
+              imageUrl.substring(0, 6) == "images"
+                  ? Container(
+                      margin: EdgeInsets.all(0),
+                      padding: EdgeInsets.all(0),
+                      color: Colors.black,
+                      child: FittedBox(
+                        child: Image.asset(imageUrl),
+                        fit: BoxFit.contain,
+                      ))
+                  : Container(
+                      margin: EdgeInsets.all(0),
+                      padding: EdgeInsets.all(0),
+                      color: Colors.black,
+                      child: FittedBox(
+                        child: Image.network(imageUrl),
+                        fit: BoxFit.contain,
+                      ))
+            ]));
   }
 }
