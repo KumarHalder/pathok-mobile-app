@@ -19,7 +19,15 @@ class HelpScreenState extends State<HelpScreen> {
   int noOfPages;
   int currentPage = 1;
   double jumpPosition = 0;
-  String html = '''
+
+  @override
+  Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
+    double webViewHeight = screenHeight * 2.1;
+
+    //jumpPosition = jumpPosition + screenWidth / 2;
+    String html = '''
   <!DOCTYPE html>
 <html>
 <head>
@@ -29,7 +37,10 @@ body {font-size:40px;
     padding: 10px 50px;
     -webkit-column-gap: 115px;
     -webkit-column-width: 575px;
-    height: 1400px;
+    text-align: justify;
+    text-justify: inter-character;
+   
+    height: ${webViewHeight}px;
     }
 h1   {color: blue;}
 p    {color: red;}
@@ -65,15 +76,10 @@ p    {color: red;}
 </body>
 </html>
   ''';
-  @override
-  Widget build(BuildContext context) {
-    double screenWidth = MediaQuery.of(context).size.width;
-    double screenHeight = MediaQuery.of(context).size.height;
-
-    //jumpPosition = jumpPosition + screenWidth / 2;
-
     return Scaffold(
-      appBar: AppBar(title: Text(widget.name)),
+      appBar: AppBar(
+        title: Text(widget.name),
+      ),
       body: GestureDetector(
         onHorizontalDragUpdate: (updateDetails) {},
         onDoubleTap: () {
@@ -90,7 +96,7 @@ p    {color: red;}
             javascriptMode: JavascriptMode.unrestricted,
             onWebViewCreated: (WebViewController webViewController) {
               _controller = webViewController;
-              _loadHtmlFromAssets();
+              _loadHtmlFromAssets(html);
             },
             onPageFinished: (some) async {
               double height = double.parse(await _controller.evaluateJavascript(
@@ -109,7 +115,7 @@ p    {color: red;}
     );
   }
 
-  _loadHtmlFromAssets() async {
+  _loadHtmlFromAssets(html) async {
     _controller.loadUrl(Uri.dataFromString(html,
             mimeType: 'text/html', encoding: Encoding.getByName('utf-8'))
         .toString());
