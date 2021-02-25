@@ -139,12 +139,12 @@ class _ExampleScreenState extends State<ExampleScreen>
             left: 0.0,
             right: 0.0,
             bottom: 0.0,
-            height: 48.0,
+            height: 98.0,
             child: AnimatedBuilder(
               animation: _controller,
               builder: (BuildContext context, Widget child) {
                 return Opacity(
-                    opacity: 0,
+                    opacity: .1,
                     child: Slider(
                       value: _controller.value,
                       onChanged: (double value) {

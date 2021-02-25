@@ -8,12 +8,15 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   const CustomAppBar({Key key, this.title = 'Home', this.height})
       : super(key: key);
+
   @override
   Widget build(BuildContext context) {
+    var prefHeight = MediaQuery.of(context).size.height * .15;
+    print(prefHeight);
     return PreferredSize(
-      preferredSize: Size.fromHeight(100),
+      preferredSize: Size.fromHeight(400),
       child: Container(
-        height: 95,
+        height: prefHeight,
         // color: Color(0xff772de8),
         decoration: BoxDecoration(
           color: AppColors.mainColor,
@@ -27,7 +30,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             padding: const EdgeInsets.fromLTRB(25, 17, 0, 0),
             child: Text(
               title,
-              style: GoogleFonts.lilitaOne(
+              style: GoogleFonts.monoton(
                 textStyle: TextStyle(
                   // fontWeight: FontWeight.bold,
                   fontSize: 35,
