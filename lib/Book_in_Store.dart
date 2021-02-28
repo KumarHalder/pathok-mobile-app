@@ -7,13 +7,15 @@ class BookInStore extends StatelessWidget {
       this.authorName,
       this.imageUrl,
       this.rating,
-      this.numOfReview});
+      this.numOfReview,
+      this.content});
 
   final String bookName;
   final String authorName;
   final String imageUrl;
   final double rating;
   final int numOfReview;
+  final String content;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +29,7 @@ class BookInStore extends StatelessWidget {
               top: 20,
               child: Container(
                 height: 120,
-                width: 190,
+                width: 200,
                 child: Card(
                     clipBehavior: Clip.antiAlias,
                     child: Padding(
@@ -56,11 +58,28 @@ class BookInStore extends StatelessWidget {
                 ),
               )),
           Positioned(
+              child: Container(
+            decoration: BoxDecoration(
+                color: Colors.grey,
+                border: Border.all(
+                    color: Colors.grey, // set border color
+                    width: 0.0), // set border width
+                borderRadius: BorderRadius.all(
+                    Radius.circular(10.0)), // set rounded corner radius
+                boxShadow: [
+                  BoxShadow(
+                      blurRadius: 5, color: Colors.black, offset: Offset(-2, 0))
+                ] // make rounded corner of border
+                ),
+            //color: Colors.grey,
+            height: 200,
+            width: 150,
             child: FadeInImage.assetNetwork(
               placeholder: "images/pic1.png",
               image: imageUrl,
+              fit: BoxFit.fitWidth,
             ),
-          )
+          ))
         ]));
   }
 }

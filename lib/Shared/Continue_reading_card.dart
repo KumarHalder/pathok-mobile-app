@@ -43,9 +43,14 @@ class ContinueReadingCard extends StatelessWidget {
                           children: [
                             Text(bookName),
                             Text(authorName),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [Text("122/200"), Text("65%")],
+                            Container(
+                              height: 20,
+                              width: 100,
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [Text("122/200"), Text("65%")],
+                              ),
                             ),
                             Container(
                                 width: 100,

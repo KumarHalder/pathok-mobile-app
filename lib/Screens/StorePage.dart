@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pathok_app/Book_in_Store.dart';
 import 'package:pathok_app/Shared/Custom_app_bar.dart';
-import 'package:pathok_app/domain/book.dart';
 import 'package:pathok_app/locator.dart';
 import 'package:pathok_app/services/storeService.dart';
 import 'package:pathok_app/webViewExample.dart';
@@ -78,8 +77,9 @@ class _StorePage extends State<StorePage> {
                               onTap: () {
                                 pushNewScreen(context,
                                     withNavBar: true,
-                                    screen: HelpScreen(
+                                    screen: ViewBook(
                                       name: snapshot.data[index].bookName,
+                                      content: snapshot.data[index].content,
                                     ));
                               },
                               child: SizedBox(
@@ -124,4 +124,8 @@ class _StorePage extends State<StorePage> {
           ),
         ));
   }
+
+  // @override
+  // // TODO: implement wantKeepAlive
+  // bool get wantKeepAlive => true;
 }

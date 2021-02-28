@@ -22,6 +22,7 @@ class storeService {
             authorName: book["Author"],
             imageUrl: book["imageUrl"],
             rating: book["rating"].toDouble(),
+            content: book["content"],
             numOfReview: book["numOfReviews"] as int);
 
         allItems.add(obj);

@@ -52,7 +52,7 @@ class _UserProfilePage extends State<UserProfilePage> {
                                       padding:
                                           EdgeInsets.symmetric(vertical: 5)),
                                   Text(
-                                    "UI/UX Designer",
+                                    "Casual Reader",
                                     style: TextStyle(fontSize: 16),
                                   ),
                                 ]),
