@@ -22,6 +22,7 @@ class BookInStore extends StatelessWidget {
     return Container(
         // color: Colors.red,
         margin: const EdgeInsets.symmetric(vertical: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 10),
         width: 310,
         child: Stack(children: [
           Positioned(
@@ -68,12 +69,15 @@ class BookInStore extends StatelessWidget {
                     Radius.circular(10.0)), // set rounded corner radius
                 boxShadow: [
                   BoxShadow(
-                      blurRadius: 5, color: Colors.black, offset: Offset(-2, 0))
+                      blurRadius: 10,
+                      color: Colors.black,
+                      offset: Offset(-2, 0),
+                      spreadRadius: 0)
                 ] // make rounded corner of border
                 ),
             //color: Colors.grey,
-            height: 200,
-            width: 150,
+            height: 180,
+            width: 130,
             child: FadeInImage.assetNetwork(
               placeholder: "images/pic1.png",
               image: imageUrl,

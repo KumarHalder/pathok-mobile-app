@@ -96,7 +96,7 @@ class ViewBookState extends State<ViewBook> {
 // </body>
 // </html>
 //   ''';
-    print(widget.content);
+
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.name),
